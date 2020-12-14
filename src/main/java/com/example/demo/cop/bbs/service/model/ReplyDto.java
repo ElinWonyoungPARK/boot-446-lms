@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 
 @Component @Data
-public class ReplyDto {
-    protected int replyId;
-    
+public class ReplyDto extends ArticleDto{
+    private String replyNum, content, artNum;
 }

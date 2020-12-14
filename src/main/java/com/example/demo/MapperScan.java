@@ -1,5 +1,5 @@
 package com.example.demo;
 
-public @interface MapperScan {
+public interface MapperScan {
 
 }
