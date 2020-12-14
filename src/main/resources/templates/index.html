@@ -12,52 +12,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>학생등록</h1>
-    <form action="">
-    <table>
-            <tr>
-                <td>ID</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>PW</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input id="join-btn" type="submit" value="회원가입"/>
-                    <input type="button" value="취소"/>
-                </td>
-            </tr>
-        </table>
-    </form>
-    <button onClick="document.getElementById('regdate').innerHTML=Date()">가입일 출력</button>
-    <span id="regdate"></span>
-<script>
-    document.getElementById('join-btn')
-        .addEventListener('click', e => {
-            e.preventDefault()
-            alert('클릭 성공!')
-            $.ajax({
-                url: '/students/'+1,
-                type: 'POST', 
-                data: json.stringify({memName:'hong',
-                                      password: '1'}),
-                dataType: 'json',
-                contentType: 'application/json',
-                success: d => {
-                    alert(`${d.name} 님 회원가입 성공 ! `)
-                },
-                error: e => {
-                    alert(`전송실패 ${e}`)
-                }
-            })
-        })
-</script>
-</body>
+   <h1>홈페이지</h1>
 </body>
 </html>
