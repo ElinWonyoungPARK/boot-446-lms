@@ -102,11 +102,10 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">                    
                     <div class="text-center coming-content">
-                        <h1>관리자등록</h1>
-                        <p>We have been spending long hours in order to launch our new website. 
-                            We will offer freebies, a brand new blog and featured content of our latest work. Join our mailing list or follow us on<br /> Facebook or Twitter to stay up to date.</p>                           
+                        <h1>관리자 Dashboard</h1>
+                        <p>관리자화면 이동시 페이스북</p>     
                         <div class="social-link">
-                            <span><a href="#"><i class="fa fa-facebook"></i></a></span>
+                            <span><a id="facebook" href="#"><i class="fa fa-facebook"></i></a></span>
                             <span><a href="#"><i class="fa fa-twitter"></i></a></span>
                             <span><a href="#"><i class="fa fa-google-plus"></i></a></span>
                         </div>
@@ -181,13 +180,14 @@
     </section>
     
 
-    <script type="text/javascript" src="/resources/js/jquery.js"></script>
-    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/resources/js/wow.min.js"></script>
-    <script type="text/javascript" src="/resources/js/coundown-timer.js"></script>
-    <script type="text/javascript" src="/resources/js/main.js"></script>
+    <script type="text/javascript" src="/resources//mgr/js/jquery.js"></script>
+    <script type="text/javascript" src="/resources//mgr/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources//mgr/js/wow.min.js"></script>
+    <script type="text/javascript" src="/resources//mgr/js/coundown-timer.js"></script>
+    <script type="text/javascript" src="/resources//mgr/js/main.js"></script>
     <script>
         $('#home').click(e => {location.href= '/'})
+        $('#facebook').click(e => {location.href = '/transfer/sym/mgr/index'})
         $('#signupbtn').click(e => {
             e.preventDefault()
             alert("click")
@@ -201,11 +201,7 @@
                 dataType: 'json',
                 contentType: 'application/json',
                 success: d => {
-                    if(d.message === "SUCCESS"){
-                        alert(`등록 성공`)
-                    }else{
-                        alert(`등록 실패`)
-                    }
+                    location.href='/transfer/sym/mgr/index'
                 },
                 error: e => {
                     console.log(`관리자등록 실패: ${e.responseText}`)
