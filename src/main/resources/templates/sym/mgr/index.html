@@ -640,6 +640,8 @@
 		})
 		$('#teachers').click(e => {
 			e.preventDefault()
+			alert("교강사목록")
+			
 			$.getJSON('/teachers', d => {
 				let tr =``
 				//teaNum, name, email, password, subject
@@ -671,9 +673,9 @@
 							</tbody>
 							</table>
 				`)
-			$.('.names').each(finction(i){
+			$('.names').each(function(i){
 				$(this).click(e => {
-					localStorage.setItem("searchId", `${this.id}`)
+					localStorage.setItem("teacherId", `${this.id}`)
 					location.href = '/transfer/sym/tea/teacher'
 				})
 			})
