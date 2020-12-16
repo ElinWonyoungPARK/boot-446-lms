@@ -26,4 +26,5 @@ public class ManagerController {
         map.put("message", (result == 1) ? "SUCCESS" : "FAILURE");
         return map;
     }
+   
 }

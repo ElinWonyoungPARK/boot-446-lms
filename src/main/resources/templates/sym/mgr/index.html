@@ -54,14 +54,14 @@
 
 					<li class="sidebar-item">
 						<a id="students" class="sidebar-link" href="#">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">학습자목록</span>
-            </a>
+						<i class="align-middle" data-feather="user"></i> <span class="align-middle">학습자목록</span>
+						</a>
 					</li>
 
 					<li class="sidebar-item">
 						<a id="teachers" class="sidebar-link" href="#">
-              <i class="align-middle" data-feather="settings"></i> <span class="align-middle">교강사목록</span>
-            </a>
+						<i class="align-middle" data-feather="settings"></i> <span class="align-middle">교강사목록</span>
+						</a>
 					</li>
 
 					<li class="sidebar-item">
@@ -638,19 +638,18 @@
 				})
 			})	
 		})
-		$('#teachers').click(e => {
-			e.preventDefault()
-			alert("교강사목록")
-			
-			$.getJSON('/teachers', d => {
+		$(`#teachers`).click(e => {
+			e.preventDefault()			
+			$.getJSON(`/teachers`, d => {
+				alert(`교강사 수 ${d.length}`)
 				let tr =``
 				//teaNum, name, email, password, subject
 				if(d.length != 0){
-					let i = 0;
+					let i = 0
 				for(; i<d.length; i++){
 					tr += `<tr>`
 						+`<td>${d[i].teaNum}</td>`
-						+`<td><a href="#" class="name" id="${d[i].name}">${d[i].name}</a></td>`
+						+`<td><a href="#" class="names" id="${d[i].teaNum}">${d[i].name}</a></td>`
 						+`<td>${d[i].email}</td>`
 						+`<td>${d[i].subject}</td>`
 						+`</tr>`
@@ -662,10 +661,10 @@
 							<table>
 							<thead>
 							<tr>
-								<th>학번</th>
+								<th>교강사번호</th>
 								<th>이름</th>
 								<th>이메일</th>
-								<th>교육과목</th>
+								<th>담당과목</th>
 							</tr>
 							</thead>
 							<tbody>
@@ -675,10 +674,12 @@
 				`)
 			$('.names').each(function(i){
 				$(this).click(e => {
-					localStorage.setItem("teacherId", `${this.id}`)
-					location.href = '/transfer/sym/tea/teacher'
+					localStorage.setItem(`searchTeacher`, `${this.id}`)
+					location.href = `/transfer/sym/tea/teacher`
 				})
 			})
+			//세션스토리지: 로그인 정보를 담는다 (보안) 금고.
+			//로컬스토리지: 그 외 정보를 담는다 (보안없음)
 			})
 		})
 	</script>
